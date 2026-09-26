@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#29213f">
+<title>ウマ娘 楽曲ソート</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="brand">🏇 UMAMUSUME MUSIC SORT</div><h1>ウマ娘 楽曲ソート</h1><p>あなたの「好き」を、ランキングに。</p></header>
+<main>
+<section id="setup" class="panel">
+<h2>🎵 参加する楽曲を選ぼう</h2><p class="muted">初期収録曲から選択できます。曲名検索や一括選択もどうぞ。</p>
+<div class="toolbar"><input id="search" placeholder="曲名で検索…" aria-label="曲名で検索"><button id="selectVisible" class="subtle">表示中を選択</button><button id="clearSelection" class="subtle">選択解除</button></div>
+<div id="songList" class="song-list"></div>
+<div class="custom"><label for="customSongs">曲を追加（1行に1曲）</label><textarea id="customSongs" rows="3" placeholder="例：新しい楽曲名"></textarea><button id="addSongs" class="subtle">リストに追加</button></div>
+<div class="controls"><label>予選通過曲数 <select id="finalSize"><option>4</option><option>8</option><option selected>16</option><option>32</option></select></label><button id="start" class="primary">選択した曲でスタート →</button></div>
+<p id="setupError" class="error"></p>
+</section>
+<section id="game" class="panel hidden">
+<div class="phase" id="phase"></div><div class="progress"><div id="progressBar"></div></div><p id="roundInfo" class="muted"></p>
+<h2 id="question">どちらの曲が好き？</h2>
+<div id="choices" class="choices"></div>
+<div class="toolbar center"><button id="undo" class="subtle">ひとつ戻る</button><button id="saveExit" class="subtle">保存して選曲へ</button></div>
+</section>
+<section id="result" class="panel hidden">
+<div class="phase">🏆 RANKING</div><h2>あなたのウマ娘楽曲ランキング</h2><p class="muted">今回の結果はこの端末に保存されています。</p>
+<ol id="ranking" class="ranking"></ol>
+<div class="toolbar center"><button id="download" class="primary">ランキング画像を保存</button><button id="restart" class="subtle">最初から</button></div>
+<canvas id="poster" width="1080" height="1600" class="hidden"></canvas>
+</section>
+<footer>Fan-made / 非公式ファンサイト。公式とは関係ありません。楽曲名等の権利は各権利者に帰属します。</footer>
+</main><script src="app.js"></script>
+</body></html>
